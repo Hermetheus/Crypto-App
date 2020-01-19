@@ -26,8 +26,38 @@ HomeStack.navigationOptions = () => ({
 
 HomeStack.path = '';
 
+const SettingsStack = createStackNavigator(
+  {
+    Settings: SettingsScreen
+  },
+  config
+);
+
+SettingsStack.navigationOptions = () => ({
+  tabBarLabel: 'Settings',
+  tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name='cog' />
+});
+
+SettingsStack.path = '';
+
+const FavoritesStack = createStackNavigator(
+  {
+    Favorites: FavoritesScreen
+  },
+  config
+);
+
+FavoritesStack.navigationOptions = () => ({
+  tabBarLabel: 'Favorites',
+  tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name='star' />
+});
+
+FavoritesStack.path = '';
+
 const MainTabNavigator = createMaterialBottomTabNavigator({
-  HomeStack
+  HomeStack,
+  FavoritesStack,
+  SettingsStack
 });
 
 MainTabNavigator.path = '';
